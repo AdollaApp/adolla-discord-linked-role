@@ -1,0 +1,38 @@
+<p>Verify your Adolla instance exists to connect it to Discord.</p>
+
+<span>
+	Enter Adolla URL
+</span>
+
+<div class="input">
+	<label>
+		<input value="http://localhost:8080" placeholder="http://localhost:8080" type="text">
+	</label>
+	<button>Submit</button>
+</div>
+
+<script>
+	// Yeah you can easily circumvent this. Bite me.
+	document.querySelector('button').addEventListener('click', async () => {
+		const value = document.querySelector('input').value;
+
+		const url = value.endsWith('/') ? value : value + '/';
+		const endpoint = url + 'json';
+
+		try {
+			const adollaReq = await fetch(endpoint).then(d => d.json());
+
+			fetch(`/set-instance-url-api?url=${url}&${location.search.slice(1)}`).then(function (res) {
+				return res.json();
+			}).then(function (data) {
+				console.log(data);
+				location.href = '/done'
+			}).catch(function (err) {
+				console.log(err);
+			})
+		} catch (err) {
+			alert("Invalid URL")
+		}
+
+	});
+</script>

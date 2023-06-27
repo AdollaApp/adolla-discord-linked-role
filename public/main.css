@@ -1,0 +1,31 @@
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+	border-top: 5px solid #4babce;
+}
+
+main {
+	max-width: 600px;
+	margin: 40px auto;
+	padding: 0 10px;
+}
+
+.input {
+	width: 100%;
+	display: flex;
+	gap: 10px;
+}
+
+button, input {
+	padding: 8px 16px;
+	border: 1px solid rgb(187, 187, 187);
+	border-radius: 4px;
+	font-size: 1rem;
+	background: transparent;
+	white-space: nowrap;
+	box-sizing: border-box;
+}
+
+input, label {
+	width: 100%;
+}
